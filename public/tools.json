@@ -1,0 +1,50 @@
+[
+    {
+        "_id" : "1",
+        "name" : "Keyboard",
+        "image" : "https://cdn.wccftech.com/wp-content/uploads/2020/04/Corsair-K95-RGB-Platinum-XT-02-From-Behind.jpg",
+        "description" : "Corsair keyboard built to last as each of their products is built with close inspection and checked thoroughly for any defect or error. These keyboards can be used in all sectors, starting from professional-level typing to intensive gaming. The lifespan of each key on the keyboard is over a million strokes." ,
+        "quantity" : "10000",
+        "price" : "100"   
+    },
+    {
+        "_id" : "2",
+        "name" : "Mouse",
+        "image" : "https://9to5toys.com/wp-content/uploads/sites/5/2020/01/CORSAIR-Scimitar-RGB-Elite.jpg",
+        "description" : "Corsair makes a wide range of computer accessories, with a focus on peripherals catered towards gamers. The majority of their mice feel very well-built and offer lots of customization options. We've tested 17 Corsair mice, and below are our recommendations for the best Corsair mice you can buy.",
+        "quantity" : "10000",
+        "price" : "60"    
+    },
+    {
+        "_id" : "3",
+        "name" : "Headphone",
+        "image" : "https://preview.redd.it/fesgomb0u8oz.png?auto=webp&s=49a0181c5865d8007266bff4fc11dc18d6a967e3",
+        "description" : "Corsair products are one of the top gaming products that are often sawed after due to the build quality and the components that have been used. It provides the utmost services and the pricing is also very reasonable. Corsair provides Dolby 7.1 Surround Sound, Noise cancellation, RGB Logo, high-quality Wireless Connection, High Definition Sound quality, and more." ,
+        "quantity" : "10000",
+        "price" : "120"   
+    },
+    {
+        "_id" : "4",
+        "name" : "Ram",
+        "image" : "https://latestintech.com/wp-content/uploads/2021/10/corsair-vengeance-rgb-rt-review.jpg",
+        "description" : "Corsair ram performance PCB is custom designed and extensively tested to provide absolutely zero compromise between style and speed. Optimized for high-frequency performance on the latest Intel® and AMD DDR4 motherboards, each module is built using carefully screened ICs for extended overclocking potential.",
+        "quantity" : "10000",
+        "price" : "65"    
+    },
+    {
+        "_id" : "5",
+        "name" : "PC Casing",
+        "image" : "https://pbs.twimg.com/media/ESg5C39UYAAC5AS.jpg:large",
+        "description" : "Corsair has a wide range of casings, whether it is for gaming purposes or casual use. They are made to suit the specific needs of each individual. Whether the board is ATX, Micro ATX, Mini-ITX, Nano-ITX, Corsair has a casing for all kinds of boards. Airflow is a very significant part of a build specially for gamers, with their high-end components."  ,
+        "quantity" : "10000",
+        "price" : "200"  
+    },
+    {
+        "_id" : "6",
+        "name" : "Cooling Fan",
+        "image" : "https://image.made-in-china.com/202f0j00MPWfHyBRnVqZ/Corsair-Ll-Series-Ll120-RGB-120mm-Dual-Light-Loop-RGB-LED-PWM-Fan-3-Fan-Pack-with-Lighting-Node-Remote-Control.jpg",
+        "description" : "Corsair is one of the top brands that make the best performing and also eye-catching Casing Fans. These casing fans are made with high-quality materials that you with long term service with constant performance. Star Tech has brought the 2 Flagship Corsair Casing fans for you." ,
+        "quantity" : "10000",
+        "price" : "25"   
+    }
+]
