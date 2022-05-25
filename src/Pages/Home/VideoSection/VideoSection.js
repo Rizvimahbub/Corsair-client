@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const VideoSection = () => {
     return (
-        <div className='vac'>
+        <div className='va'>
             <div>
                 <h1>CORSAIR OPX OPTICAL-MECHANICAL KEYSWITCHES</h1>
                 <Link to='https://www.youtube.com/watch?v=GnkDmHurMaM'><h3>WATCH VIDEO</h3></Link>
