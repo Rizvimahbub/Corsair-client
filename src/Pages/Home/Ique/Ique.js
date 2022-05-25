@@ -3,7 +3,7 @@ import IquePhoto from './Ique.png';
 
 const Ique = () => {
     return (
-        <div className='grid lg:grid-cols-2 bg-[#151335]'>
+        <div className='grid lg:grid-cols-2 bg-[#151335] mb-20'>
             <div className='flex justify-center items-center'>
                 <div className='w-2/4 mx-auto py-5'>
                     <img className='w-2/4' src={IquePhoto} />

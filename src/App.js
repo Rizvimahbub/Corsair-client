@@ -9,6 +9,7 @@ import Login from './Pages/Shared/Login/Login';
 import Registration from './Pages/Shared/Registration/Registration';
 import Ique from './Pages/Home/Ique/Ique';
 import Reviews from './Pages/Home/Reviews/Reviews';
+import VideoSection from './Pages/Home/VideoSection/VideoSection';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/ique' element={<Ique/>}></Route>
         <Route path='/reviews' element={<Reviews/>}></Route>
+        <Route path='/video' element={<VideoSection/>}></Route>
         <Route path='/registration' element={<Registration/>}></Route>
       </Routes>
     </div>

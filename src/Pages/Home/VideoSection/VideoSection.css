@@ -1,0 +1,18 @@
+.div-1{
+    background-image: url(switch.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.div-2{
+    background-image: url(bg-2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.div-3{
+    background-image: url(bg-1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
