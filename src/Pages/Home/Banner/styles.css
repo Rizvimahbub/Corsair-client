@@ -117,7 +117,6 @@ header section a {
 		height: 32px;
 		text-indent: -9999px;
 		cursor: pointer;
-    background-color: #4a4949;
 }
 
 
@@ -163,11 +162,9 @@ header section a {
 
 .slider-content .inner h1 {
   font-weight: 900;
-  margin: 0 auto;
-  /* max-width: 1000px; */
   color: #2cc0f6;
-  font-size: 100px;
-  line-height: 1;
+  font-size: 60px;
+  line-height: 1.5;
 }
 
 .slider-content .inner p {

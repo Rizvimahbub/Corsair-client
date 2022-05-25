@@ -7,7 +7,7 @@
 
 
 @media screen and (min-width:280px) and (max-width:500px) {
-    .form-container{
+    .form-container-1{
         width: 90%;
     } 
     
@@ -16,33 +16,33 @@
     }
 }
 @media screen and (min-width:280px) and (max-width:500px) {
-    .form-container{
+    .form-container-1{
         width: 90%;
     }  
 }
 @media screen and (min-width:501px) and (max-width:700px) {
-    .form-container{
+    .form-container-1{
         width: 70%;
     }  
 }
     
 @media screen and (min-width:701px) and (max-width:800px) {
-    .form-container{
+    .form-container-1{
         width: 60%;
     } 
 }
 @media screen and (min-width:801px) and (max-width:1000px) {
-    .form-container{
+    .form-container-1{
         width: 50%;
     } 
 }
 @media screen and (min-width:1001px) and (max-width:1200px) {
-    .form-container{
+    .form-container-1{
         width: 40%;
     } 
 }
 @media screen and (min-width:1201px) and (max-width:2000px) {
-    .form-container{
+    .form-container-1{
         width: 40%;
     } 
 

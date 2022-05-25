@@ -15,7 +15,7 @@ const Tool = ({ part }) => {
                 <h2 class="text-3xl font-bold">{name}</h2>
                 <p className='font-semibold'>{description}</p>
                 <div class="card-actions justify-start">
-                    <button onClick={() => navigateProcess(_id)} class="btn btn-primary text-white">Purchase</button>
+                    <button onClick={() => navigateProcess(_id)} class="btn btn-primary text-white rounded-3xl w-40">Purchase</button>
                 </div>
             </div>
         </div>
