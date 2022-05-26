@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../Footer/Footer';
 import Banner from '../Banner/Banner';
 import BusinessSummary from '../BusinessSummary/BusinessSummary';
 import Ique from '../Ique/Ique';
@@ -15,6 +16,7 @@ const Home = () => {
             <Reviews></Reviews>
             <Ique/>
             <VideoSection></VideoSection>
+            <Footer></Footer>
         </div>
     );
 };
