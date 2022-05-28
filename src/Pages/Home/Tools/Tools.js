@@ -5,7 +5,7 @@ import './Tools.css';
 const Tools = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tool')
+        fetch('https://tranquil-crag-79449.herokuapp.com/tool')
             .then(res => res.json())
             .then(data => setTools(data))
     }, [])

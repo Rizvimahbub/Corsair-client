@@ -6,7 +6,7 @@ const AdminMakingPage = ({ index, user, refetch }) => {
     const makeAdmin = () => {
         
         
-        fetch(`http://localhost:5000/users/${email}`, {
+        fetch(`https://tranquil-crag-79449.herokuapp.com/users/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -22,7 +22,7 @@ const AdminMakingPage = ({ index, user, refetch }) => {
         
     }
     const removeAdmin = () => {
-        fetch(`http://localhost:5000/users/admin/${email}`, {
+        fetch(`https://tranquil-crag-79449.herokuapp.com/users/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

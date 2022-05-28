@@ -4,7 +4,7 @@ import Spinner from '../Shared/Spinner/Spinner';
 
 const ManageAllOrders = () => {
 
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/order', {
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('https://tranquil-crag-79449.herokuapp.com/order', {
         method: 'GET',
         headers: {
             'content-type': 'application/json'

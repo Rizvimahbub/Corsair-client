@@ -14,7 +14,7 @@ const MyProfile = () => {
     const phoneRef = useRef('');
 
 
-    const { data: info, isLoading, refetch } = useQuery(('infos', user.email), () => fetch(`http://localhost:5000/profile/${user.email}`, {
+    const { data: info, isLoading, refetch } = useQuery(('infos', user.email), () => fetch(`https://tranquil-crag-79449.herokuapp.com/profile/${user.email}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json'
@@ -34,7 +34,7 @@ const MyProfile = () => {
         const phone = phoneRef.current.value;
         const info = { name, email, address, city, phone }
 
-        fetch('http://localhost:5000/profile', {
+        fetch('https://tranquil-crag-79449.herokuapp.com/profile', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -53,7 +53,7 @@ const MyProfile = () => {
         const city = cityRef.current.value;
         const phone = phoneRef.current.value;
         const updatedItem = { address, city, phone };
-        fetch(`http://localhost:5000/profile/${user.email}`, {
+        fetch(`https://tranquil-crag-79449.herokuapp.com/profile/${user.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

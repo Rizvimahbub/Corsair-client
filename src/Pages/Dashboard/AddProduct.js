@@ -10,7 +10,7 @@ const AddProduct = () => {
     const quantityRef = useRef('');
     const descRef = useRef('');
 
-    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/tool', {
+    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('https://tranquil-crag-79449.herokuapp.com/tool', {
         method: 'GET',
         headers: {
             'content-type': 'application/json'
@@ -48,7 +48,7 @@ const AddProduct = () => {
                         description: description,
                         
                     }
-                    fetch(`http://localhost:5000/tool`, {
+                    fetch(`https://tranquil-crag-79449.herokuapp.com/tool`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -73,8 +73,8 @@ const AddProduct = () => {
                             <figure><img src={product.image} /></figure>
                             <div class="card-body">
                                 <h2 class="card-title">{product.name}</h2>
-                                <h2 class="font-bold">{product.price}</h2>
-                                <h2 class="font-bold">{product.quantity}</h2>
+                                <h2 class="font-bold">Price : {product.price}</h2>
+                                <h2 class="font-bold">Quantity : {product.quantity}</h2>
                                 <p class="font-semibold">{product.description}</p>
                             </div>
                         </div>

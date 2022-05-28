@@ -13,7 +13,7 @@ const AddReview = () => {
     const commentRef = useRef('');
     const ratingRef = useRef('');
 
-    const { data: reviews, isLoading, refetch } = useQuery(('reviews'), () => fetch('http://localhost:5000/reviews').then(res => res.json()))
+    const { data: reviews, isLoading, refetch } = useQuery(('reviews'), () => fetch('https://tranquil-crag-79449.herokuapp.com/reviews').then(res => res.json()))
 
     if (isLoading) {
         return <Spinner></Spinner>
@@ -32,7 +32,7 @@ const AddReview = () => {
             return setError('Please a rating between 1 and 5')
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://tranquil-crag-79449.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

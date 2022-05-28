@@ -5,7 +5,7 @@ import AdminMakingPage from './AdminMakingPage';
 
 const MakeAdmin = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://tranquil-crag-79449.herokuapp.com/users', {
         method: 'GET',
         headers: {
             'content-type': 'application/json'

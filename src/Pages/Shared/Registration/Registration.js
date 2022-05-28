@@ -22,7 +22,7 @@ const Registration = () => {
         const role = 'user';
         const userItems = { name, email, phone, role };
         
-        fetch('http://localhost:5000/users', {
+        fetch('https://tranquil-crag-79449.herokuapp.com/users', {
             method : 'POST',
             headers : {
                 'content-type' : 'application/json'

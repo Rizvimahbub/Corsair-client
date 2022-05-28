@@ -8,14 +8,14 @@ import Spinner from '../Shared/Spinner/Spinner';
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/order/${user.email}`).then(res => res.json()))
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://tranquil-crag-79449.herokuapp.com/order/${user.email}`).then(res => res.json()))
     console.log(orders)
     if(isLoading){
         return <Spinner></Spinner>
     }
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/order/${user.email}`, {
+        fetch(`https://tranquil-crag-79449.herokuapp.com/order/${user.email}`, {
             method: 'DELETE',
             
         })

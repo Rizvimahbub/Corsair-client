@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import Spinner from '../Shared/Spinner/Spinner';
 
 const Users = () => {
-    const { data: users, isLoading,refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data: users, isLoading,refetch } = useQuery('users', () => fetch('https://tranquil-crag-79449.herokuapp.com/users', {
         method: 'GET',
         headers: {
             'content-type': 'application/json'
@@ -17,7 +17,7 @@ const Users = () => {
     }
 
     const deleteProcess = _id =>{
-        fetch(`http://localhost:5000/users/${_id}`, {
+        fetch(`https://tranquil-crag-79449.herokuapp.com/users/${_id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

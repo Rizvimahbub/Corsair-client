@@ -7,7 +7,7 @@ const Dashboard = () => {
     const [user] = useAuthState(auth);
     const [admin, setAdmin] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`, {
+        fetch(`https://tranquil-crag-79449.herokuapp.com/users/${user.email}`, {
             method : 'GET',
             headers : {
                 'content-type': 'application/json'

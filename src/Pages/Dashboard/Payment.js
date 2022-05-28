@@ -12,7 +12,7 @@ const stripePromise = loadStripe('pk_test_51L4JBiKulUBEIW5Lj8Zf0l5FBPuEhuryA1F12
 const Payment = () => {
     const { id } = useParams();
 
-    const { data: order, isLoading } = useQuery(('order', id), () => fetch(`http://localhost:5000/orders/order/${id}`).then(res => res.json()))
+    const { data: order, isLoading } = useQuery(('order', id), () => fetch(`https://tranquil-crag-79449.herokuapp.com/orders/order/${id}`).then(res => res.json()))
 
     if (isLoading) {
         return <Spinner></Spinner>

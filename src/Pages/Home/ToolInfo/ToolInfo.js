@@ -18,7 +18,7 @@ const ToolInfo = () => {
     const phoneRef = useRef('');
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/tool/${id}`)
+        fetch(`https://tranquil-crag-79449.herokuapp.com/tool/${id}`)
             .then(res => res.json())
             .then(data => setTool(data))
     }, [id])
@@ -72,7 +72,7 @@ const ToolInfo = () => {
                         img: img,
                         totalPrice : totalPrice
                     }
-                    fetch(`http://localhost:5000/order`, {
+                    fetch(`https://tranquil-crag-79449.herokuapp.com/order`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
