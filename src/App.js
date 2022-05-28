@@ -49,7 +49,7 @@ function App() {
           <Route path='payment/:id' element={<Payment />}></Route>
           <Route path='adminmakingPage' element={<AdminMakingPage />}></Route>
         </Route>
-        <Route path='/tools' element={<Tools />}></Route>  
+        <Route path='/tools' element={<Tools />}></Route>   
         <Route path='/tool/:id' element={
           <RequireAuth>
             <ToolInfo />
