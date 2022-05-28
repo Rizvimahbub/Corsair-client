@@ -1,9 +1,10 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
 import Spinner from '../Shared/Spinner/Spinner';
 
 const Users = () => {
-    const { data: users, isLoading } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data: users, isLoading,refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
         method: 'GET',
         headers: {
             'content-type': 'application/json'
@@ -13,6 +14,20 @@ const Users = () => {
 
     if (isLoading) {
         return <Spinner></Spinner>
+    }
+
+    const deleteProcess = _id =>{
+        fetch(`http://localhost:5000/users/${_id}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount) {
+                    toast.success(`User is deleted.`)
+                    refetch();
+                }
+            })
     }
 
 
@@ -38,7 +53,7 @@ const Users = () => {
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user.phone}</td>
-                                    <td></td>
+                                    <td><button onClick={() => deleteProcess(user._id)} class="btn btn-sm bg-red-500 text-white border-0">Remove</button></td>
                                 </tr>)
                         }
 
