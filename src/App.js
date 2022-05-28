@@ -26,6 +26,7 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import AdminMakingPage from './Pages/Dashboard/AdminMakingPage';
 import Payment from './Pages/Dashboard/Payment';
 import NotFound from './Pages/NotFound/NotFound';
+import Blogs from './Pages/Blogs/Blogs';
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
         <Route path='/reviews' element={<Reviews />}></Route>
         <Route path='/video' element={<VideoSection />}></Route>
         <Route path='/footer' element={<Footer />}></Route>
+        <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='/registration' element={<Registration />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
