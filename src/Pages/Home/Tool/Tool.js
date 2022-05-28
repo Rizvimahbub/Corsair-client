@@ -12,8 +12,8 @@ const Tool = ({ part }) => {
         <div class="card lg:card-side bg-base-100 shadow-xl border-2">
             <figure><img className='w-96 h-96' src={image} alt="Album" /></figure>
             <div class="card-body">
-                <h2 class="text-3xl font-bold">{name}</h2>
-                <p className='font-semibold'>{description}</p>
+                <h2 class="text-3xl font-bold mb-5">{name}</h2>
+                <p className='font-semibold leading-relaxed'>{description}</p>
                 <div class="card-actions justify-start">
                     <button onClick={() => navigateProcess(_id)} class="btn btn-primary text-white rounded-3xl w-40">Purchase</button>
                 </div>

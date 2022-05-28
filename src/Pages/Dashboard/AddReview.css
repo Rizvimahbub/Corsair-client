@@ -1,0 +1,7 @@
+@media screen and (max-width:500px) {
+    .cardMain{
+        padding:0;
+        width: 95%;
+        
+    }
+}

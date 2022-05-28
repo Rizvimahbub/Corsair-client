@@ -1,24 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import auth from '../../../firebase.init';
 import { useForm } from "react-hook-form";
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Spinner from '../Spinner/Spinner';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Footer from '../../Footer/Footer';
+import { toast } from 'react-toastify';
 // import useToken from '../../../Hooks/useToken';
 
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+    const emailRef = useRef('');
 
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     let loginError;
     const onSubmit = data => {
-        console.log(data);
         signInWithEmailAndPassword(data.email, data.password);
     };
-
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -47,11 +48,12 @@ const Login = () => {
 
 
     if (error || gError) {
-        loginError = <p className='text-red-500 mb-2'>{error?.message || gError?.message}</p>
+        loginError = <p className='text-red-500 mb-2 font-bold'>{error?.message.slice(-21,-2) || gError?.message.slice(-22,-2)}</p>
     }
 
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <div>
+            <div className='flex justify-center items-center h-screen'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center font-semibold text-2xl">Login</h2>
@@ -108,6 +110,7 @@ const Login = () => {
                             </label>
                         </div>
                         {loginError}
+                        <p className='text-primary ml-1 text-left mb-2'><Link to='/passwordReset'>Forget Password ?</Link> </p>
                         <input className='btn btn-primary w-3/5 rounded-3xl text-white' value='Sign In' type="submit" />
                     </form>
                     <p className='text-center'><small>New to Corsair website ? <Link className='text-primary font-semibold' to='/registration'>Create new account</Link></small></p>
@@ -119,6 +122,9 @@ const Login = () => {
                 </div>
             </div>
         </div>
+        <Footer></Footer>
+        </div>
+        
     );
 };
 

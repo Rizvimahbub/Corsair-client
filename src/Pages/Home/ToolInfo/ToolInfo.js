@@ -1,16 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import auth from '../../../firebase.init';
-
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './ToolInfo.css';
-import { current } from 'daisyui/src/colors';
+
 
 const ToolInfo = () => {
     const { id } = useParams();
     const [tool, setTool] = useState({});
     const [inputValue, setInputValue] = useState();
-    const [quantity, setQuantity] = useState();
     const [error, setError] = useState();
     const [user] = useAuthState(auth);
     const emailRef = useRef('');
@@ -18,6 +16,7 @@ const ToolInfo = () => {
     const addressRef = useRef('');
     const orderRef = useRef('');
     const phoneRef = useRef('');
+    const navigate = useNavigate();
     useEffect(() => {
         fetch(`http://localhost:5000/tool/${id}`)
             .then(res => res.json())
@@ -29,39 +28,62 @@ const ToolInfo = () => {
         if (inputValue < 10) {
             setError('Order minimum 10 units')
         } else if (inputValue > tool.quantity) {
-            setError('Unavailable quantity')
+            setError('Out of stock')
         } else if (inputValue >= 10) {
             setError('')
         }
     }
 
-
-
+    const imgKey = 'fb7a06a76e0f5f9508fc222d330ff7c2';
 
 
 
     const inputProcess = event => {
         event.preventDefault();
         const productName = tool.name;
-        const name = event.target.name.value;
+        const name = nameRef.current.value;
         const email = emailRef.current.value;
         const address = addressRef.current.value;
         const order = orderRef.current.value;
+        const totalPrice = parseInt(tool.price) * parseInt(order)
+        const oldQuantity = parseInt(tool.quantity);
+        const newQuantity = oldQuantity - parseInt(order);
+        tool.quantity = newQuantity;
         const phone = phoneRef.current.value;
-        const chart = { productName, name, email, address, order, phone }
-
-
-        fetch(`http://localhost:5000/order`, {
+        const img = tool.image;
+        const formData = new FormData();
+        const url = `https://api.imgbb.com/1/upload?key=${imgKey}`;
+        formData.append('image', img);
+        fetch(url, {
             method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(chart)
-        }, [])
+            body: formData
+        })
             .then(res => res.json())
-            .then(data => console.log(data))
-
-
+            .then(result => {
+                if (result.success) {
+                    const img = result.data.url;
+                    const chart = {
+                        productName: productName,
+                        name: name,
+                        email: email,
+                        address: address,
+                        order: order,
+                        phone: phone,
+                        img: img,
+                        totalPrice : totalPrice
+                    }
+                    fetch(`http://localhost:5000/order`, {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(chart)
+                    }, [])
+                        .then(res => res.json())
+                        .then(data => console.log(data))
+                }
+                navigate('/')
+            })
 
     };
 
@@ -91,7 +113,7 @@ const ToolInfo = () => {
                                 name="name"
                                 type="text"
                                 className="input input-bordered rounded-3xl"
-                            // value={user.displayName} 
+                                value={user.displayName}
                             ></input>
                         </div>
                         <div className="form-control">
@@ -103,7 +125,7 @@ const ToolInfo = () => {
                                 name="email"
                                 type="email"
                                 className="input input-bordered rounded-3xl"
-                            // value={user.email} 
+                                value={user.email}
                             />
                         </div>
                         <div className="form-control">
@@ -111,6 +133,7 @@ const ToolInfo = () => {
                                 <span className="label-text font-semibold">Address</span>
                             </label>
                             <input
+                                required
                                 ref={addressRef}
                                 name='address'
                                 type="text"
@@ -122,8 +145,9 @@ const ToolInfo = () => {
                                 <span className="label-text font-semibold">Order Quantity ( <span className='text-red-500 '>Order at least 10 units</span> )</span>
                             </label>
                             <input
+                            required
                                 ref={orderRef}
-                                onKeyUp={getValue}
+                                onChange={getValue}
                                 type="number"
                                 placeholder="Order"
                                 className="input input-bordered rounded-3xl"
@@ -138,6 +162,7 @@ const ToolInfo = () => {
                                 <span className="label-text font-semibold">Contact Number</span>
                             </label>
                             <input
+                            required
                                 ref={phoneRef}
                                 type="number"
                                 placeholder="Contact Number"

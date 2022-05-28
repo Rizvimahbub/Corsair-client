@@ -1,13 +1,29 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 import Logo from './Logo.png';
 
 const Navbar = () => {
+    const [user] = useAuthState(auth);
+
+    const signOutProcess = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    };
+
+
     const links = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
         <li><Link to='/review'>Review</Link></li>
-        <li><Link to='/login'>Login</Link></li>
+        {
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+        }
+        {user?<li><Link onClick={signOutProcess} to='/'>Sign Out</Link></li> : <li><Link to='/login'>Login</Link></li>}
     </>
     return (
         <div class="navbar bg-primary mt-[-75px]">
@@ -29,6 +45,11 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
+            <div className="navbar-end">
+                    <label for='sidebar' tabIndex="1" className="btn btn-ghost lg:hidden">
+                        <FontAwesomeIcon icon={faBars} />
+                    </label>
+                </div>
         </div>
     );
 };
